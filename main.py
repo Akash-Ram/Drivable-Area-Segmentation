@@ -12,6 +12,12 @@ from distutils.version import LooseVersion
 from tensorflow.python.platform import gfile
 from tensorflow.core.protobuf import saved_model_pb2
 
+glob_trainig_images_path="./data/data_road/training/image_2/*.png"
+glob_labels_trainig_image_path="./data/data_road/training/gt_image_2/*_road_*.png"
+epochs= 10                                  #May be changed to 20
+num_classes= 2
+
+
 image_shape = (160, 576)
 
 def load_vgg(sess, vgg_path):
