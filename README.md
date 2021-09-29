@@ -45,3 +45,5 @@ An example of the original and segmented image is shown below:
  ![](./examples/1.png)
 
  ![](./examples/2.png)
+ 
+  Link to the Google Colaboratory notebook where the completed code is executed is given here: [Colab](https://colab.research.google.com/drive/1BJc_kq5Q4mCR4Bf9XxFxtOPoeEN4vHKh?usp=sharing)
