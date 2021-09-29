@@ -15,10 +15,6 @@ from tqdm import tqdm
 from optparse import OptionParser
 from urllib.request import urlretrieve
 
-from VideoGet import VideoGet
-from VideoShow import VideoShow
-from VideoZed import VideoZed
-
 class DLProgress(tqdm):
   last_block = 0
 
@@ -31,7 +27,6 @@ class DLProgress(tqdm):
 def maybe_download_pretrained_vgg(vgg_path):
   """
   Download and extract pretrained vgg model if it doesn't exist
-  :param data_dir: Directory to download the model to
   """
   vgg_filename = 'vgg.zip'
   vgg_files = [
@@ -201,43 +196,7 @@ def predict(sess, image, image_pl, keep_prob, logits, image_shape):
     
     return street_im
 
-def read_zed(sess, image_shape, logits, keep_prob, input_image):
-    count = 0
-    video_zed = VideoZed(sess, image_shape, logits, keep_prob, input_image).start()
-
-    while type(video_zed.frame) == type(None):
-      if count == 3:
-        exit("Error to open ZED")
-      print("Waiting for zed")
-      count+=1
-      time.sleep(1)
-      
-    video_shower = VideoShow(video_zed.frame).start()
-
-    while True:
-        if video_zed.stopped or video_shower.stopped:
-            video_shower.stop()
-            video_zed.stop()
-            break
-
-        frame = video_zed.frame
-        video_shower.frame = frame
-
-def predict_video(data_dir, sess, image_shape, logits, keep_prob, input_image):
-    print('Predicting Video...')
-    
-    video_getter = VideoGet(data_dir, sess, image_shape, logits, keep_prob, input_image).start()
-    video_shower = VideoShow(video_getter.frame).start()
-
-    while True:
-        if video_getter.stopped or video_shower.stopped:
-            video_shower.stop()
-            video_getter.stop()
-            break
-
-        frame = video_getter.frame
-        video_shower.frame = frame
-        
+       
 def save_inference_samples(runs_dir, data_dir, sess, image_shape, logits, keep_prob, input_image):
   # Make folder for current run
   output_dir = os.path.join(runs_dir, str(int(time.time())))
