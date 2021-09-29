@@ -36,7 +36,7 @@ This will show the list of commands one can use to change the parameters.
 To run the model on default parameters you can use the following code 
 
 ```bash
-  python main.py -i './data/data_road/training/image_2/*.png' -l './data/data_road/training/gt_image_2/*_road_*.png' -e 10 -n 2
+  python main.py -i './data/data_road/training/image_2/*.png' -l './data/data_road/training/gt_image_2/*_road_*.png' -e 20 -n 2
 ```
 ## Output
 The raw images from the "./data/data_road/testing/image_2" will be segmented and will be saved in "./runs/{}"
