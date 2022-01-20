@@ -2,9 +2,9 @@
 # Drivable Area Segmentation
 
 ## Members
-- Akash Ram
-- Rajesh Kumar
-- Aaishu Agarwal
+- [Akash Ram](https://github.com/Akash-Ram)
+- [Rajesh Kumar](https://github.com/rajeshkumar2024)
+- [Aaishu Agarwal](https://github.com/Aaishuagarwal123)
 - Md. Riyan Alam
 
 
